@@ -1,18 +1,25 @@
 ﻿<Properties StartupConfiguration="{3F36FF28-95D9-41EC-8DAD-43851B73CCE0}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="API/Controllers/ProductsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Core/Interfaces/IProductRepository.cs">
     <Files>
-      <File FileName="API/Controllers/ProductsController.cs" Line="31" Column="10" />
+      <File FileName="API/Controllers/ProductsController.cs" Line="29" Column="46" />
+      <File FileName="Infrastructure/Data/ProductRepository.cs" Line="9" Column="42" />
+      <File FileName="Core/Interfaces/IProductRepository.cs" Line="13" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="skinet" expanded="True">
             <Node name="API" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="ProductsController.cs" selected="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Properties" expanded="True" />
+            </Node>
+            <Node name="Core" expanded="True">
+              <Node name="Interfaces" expanded="True">
+                <Node name="IProductRepository.cs" selected="True" />
               </Node>
+            </Node>
+            <Node name="Infrastructure" expanded="True">
               <Node name="Data" expanded="True" />
-              <Node name="Entities" expanded="True" />
             </Node>
           </Node>
         </State>
