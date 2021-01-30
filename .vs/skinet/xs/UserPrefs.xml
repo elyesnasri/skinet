@@ -1,27 +1,18 @@
 ﻿<Properties StartupConfiguration="{3F36FF28-95D9-41EC-8DAD-43851B73CCE0}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="API/Helpers/MappingProfiles.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="API/Startup.cs">
     <Files>
       <File FileName="API/Dtos/ProductToReturnDto.cs" Line="18" Column="49" />
-      <File FileName="API/Helpers/MappingProfiles.cs" Line="15" Column="17" />
-      <File FileName="API/Startup.cs" Line="27" Column="60" />
-      <File FileName="API/Controllers/ProductsController.cs" Line="37" Column="1" />
-      <File FileName="API/Helpers/ProductUrlResolver.cs" Line="29" Column="1" />
+      <File FileName="API/Helpers/MappingProfiles.cs" />
+      <File FileName="API/Startup.cs" Line="19" Column="44" />
+      <File FileName="API/Controllers/ProductsController.cs" />
+      <File FileName="API/Helpers/ProductUrlResolver.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="skinet" expanded="True">
             <Node name="API" expanded="True">
-              <Node name="Helpers" expanded="True">
-                <Node name="MappingProfiles.cs" selected="True" />
-              </Node>
-              <Node name="appsettings.json" expanded="True" />
-            </Node>
-            <Node name="Core" expanded="True">
-              <Node name="Interfaces" expanded="True" />
-            </Node>
-            <Node name="Infrastructure" expanded="True">
-              <Node name="Data" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
