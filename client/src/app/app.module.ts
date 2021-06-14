@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ShopModule } from './shop/shop.module';
-import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +17,6 @@ import { MatSliderModule } from '@angular/material/slider';
     HttpClientModule,
     CoreModule,
     ShopModule,
-    MatSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
