@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { ShopModule } from './shop/shop.module';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +17,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     HttpClientModule,
     CoreModule,
     ShopModule,
-    MatSidenavModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
