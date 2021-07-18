@@ -1,5 +1,29 @@
-<!-- <mat-grid-list cols="1" rowHeight="1:1">
-    <mat-grid-tile *ngFor="let item of products">
-        <app-product-items [product]="item" class="my-5"></app-product-items>
-    </mat-grid-tile>
-  </mat-grid-list> -->
+<div class="p-grid">
+  <div class="p-col-3">
+    <div class="p-grid">
+      <div class="p-col-12">
+        <h5>Brands</h5>
+        <p-listbox
+          [options]="brands"
+          optionLabel="name"
+          [style]="{ width: '15rem' }"
+        ></p-listbox>
+      </div>
+      <div class="p-col-12">
+        <h5>Types</h5>
+        <p-listbox
+          [options]="types"
+          optionLabel="name"
+          [style]="{ width: '15rem' }"
+        ></p-listbox>
+      </div>
+    </div>
+  </div>
+  <div class="p-col">
+    <div class="p-grid">
+      <div *ngFor="let item of products" class="p-col-4">
+        <app-product-items [product]="item"></app-product-items>
+      </div>
+    </div>
+  </div>
+</div>
