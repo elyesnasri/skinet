@@ -14,14 +14,14 @@ export class ShopService {
   constructor(private httpClient: HttpClient) {}
 
   getProducts(brandId?: number, typeId?: number) {
-    const params = new HttpParams();
+    let params = new HttpParams();
 
     if (brandId) {
-      params.append('brandId', brandId.toString());
+      params = params.append('brandId', brandId.toString());
     }
 
     if (typeId) {
-      params.append('typeId', typeId.toString());
+      params = params.append('typeId', typeId.toString());
     }
 
     return this.httpClient

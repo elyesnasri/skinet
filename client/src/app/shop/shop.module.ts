@@ -5,10 +5,18 @@ import { ProductItemsComponent } from './product-items/product-items.component';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { ListboxModule } from 'primeng/listbox';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ShopComponent, ProductItemsComponent],
-  imports: [CommonModule, CardModule, ButtonModule, ListboxModule],
+  imports: [
+    CommonModule,
+    CardModule,
+    ButtonModule,
+    ListboxModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [ShopComponent],
 })
 export class ShopModule {}

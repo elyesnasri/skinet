@@ -5,17 +5,34 @@
         <h5>Brands</h5>
         <p-listbox
           [options]="brands"
+          [(ngModel)]="brandIdSelected"
           optionLabel="name"
           [style]="{ width: '15rem' }"
-        ></p-listbox>
+        >
+          <ng-template let-brand pTemplate="item">
+            <div
+              (click)="onBrandSelected(brand.id)"
+              [class]="brandIdSelected === brand.id ? 'p-highlight' : ''"
+            >
+              <div>{{ brand.name }}</div>
+            </div>
+          </ng-template>
+        </p-listbox>
       </div>
       <div class="p-col-12">
         <h5>Types</h5>
         <p-listbox
           [options]="types"
+          [(ngModel)]="typeIdSelected"
           optionLabel="name"
           [style]="{ width: '15rem' }"
-        ></p-listbox>
+        >
+          <ng-template let-type pTemplate="item">
+            <div (click)="onTypeSelected(type.id)">
+              <div>{{ type.name }}</div>
+            </div>
+          </ng-template>
+        </p-listbox>
       </div>
     </div>
   </div>
