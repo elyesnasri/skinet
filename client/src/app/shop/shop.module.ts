@@ -6,6 +6,7 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { ListboxModule } from 'primeng/listbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [ShopComponent, ProductItemsComponent],
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ListboxModule,
     FormsModule,
     ReactiveFormsModule,
+    DropdownModule,
   ],
   exports: [ShopComponent],
 })

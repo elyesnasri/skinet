@@ -2,6 +2,15 @@
   <div class="p-col-3">
     <div class="p-grid">
       <div class="p-col-12">
+        <h5>Sort</h5>
+        <p-dropdown
+          [options]="sortOptions"
+          [(ngModel)]="sortSelected"
+          optionLabel="name"
+          (onChange)="onSortSelected()"
+        ></p-dropdown>
+      </div>
+      <div class="p-col-12">
         <h5>Brands</h5>
         <p-listbox
           [options]="brands"
