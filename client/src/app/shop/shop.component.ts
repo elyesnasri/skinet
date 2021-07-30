@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IBrand } from '../shared/models/brands';
 import { IProduct } from '../shared/models/product';
 import { IType } from '../shared/models/productType';
+import { ShopParams } from '../shared/models/shopParams';
 import { ShopService } from './shop.service';
 
 @Component({
@@ -13,9 +14,8 @@ export class ShopComponent implements OnInit {
   products: IProduct[];
   brands: IBrand[];
   types: IType[];
-  brandIdSelected: IBrand = null;
-  typeIdSelected: IType = null;
-  sortSelected = { name: 'Alphabetical', value: 'name' };
+  shopParams = new ShopParams();
+  totalCount: number;
   sortOptions = [
     { name: 'Alphabetical', value: 'name' },
     { name: 'Price: Low to High', value: 'priceAsc' },
@@ -31,27 +31,25 @@ export class ShopComponent implements OnInit {
   }
 
   getProducts() {
-    this.shopService
-      .getProducts(
-        this.brandIdSelected?.id,
-        this.typeIdSelected?.id,
-        this.sortSelected.value
-      )
-      .subscribe(
-        (response) => {
-          this.products = response.data;
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    this.shopService.getProducts(this.shopParams).subscribe(
+      (response) => {
+        this.products = response.data;
+        this.shopParams.pageIndex = response.pageIndex;
+        this.shopParams.pageSize = response.pageSize;
+        this.totalCount = 18; // will be fixed in backend -> response.count ist the right one;
+        console.log('count: ', response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   getBrands() {
     this.shopService.getBrands().subscribe(
       (response) => {
         this.brands = [{ id: 0, name: 'All' }, ...response];
-        this.brandIdSelected = this.brands[0];
+        this.shopParams.brandId = this.brands[0];
       },
       (error) => {
         console.log(error);
@@ -63,7 +61,7 @@ export class ShopComponent implements OnInit {
     this.shopService.getTypes().subscribe(
       (response) => {
         this.types = [{ id: 0, name: 'All' }, ...response];
-        this.typeIdSelected = this.types[0];
+        this.shopParams.typeId = this.types[0];
       },
       (error) => {
         console.log(error);
@@ -72,18 +70,21 @@ export class ShopComponent implements OnInit {
   }
 
   onBrandSelected(brandId: number) {
-    this.brandIdSelected = this.brands.find((x) => x.id === brandId);
+    this.shopParams.brandId = this.brands.find((x) => x.id === brandId);
     this.getProducts();
   }
 
   onTypeSelected(typeId: number) {
-    this.typeIdSelected = this.types.find((x) => x.id === typeId);
+    this.shopParams.typeId = this.types.find((x) => x.id === typeId);
     this.getProducts();
   }
 
   onSortSelected() {
-    console.log('selected: ', this.sortSelected);
+    this.getProducts();
+  }
 
+  onPageChanged(event: any) {
+    this.shopParams.pageIndex = event.page + 1;
     this.getProducts();
   }
 }

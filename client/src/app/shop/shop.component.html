@@ -5,7 +5,7 @@
         <h5>Sort</h5>
         <p-dropdown
           [options]="sortOptions"
-          [(ngModel)]="sortSelected"
+          [(ngModel)]="shopParams.sort"
           optionLabel="name"
           (onChange)="onSortSelected()"
         ></p-dropdown>
@@ -14,14 +14,14 @@
         <h5>Brands</h5>
         <p-listbox
           [options]="brands"
-          [(ngModel)]="brandIdSelected"
+          [(ngModel)]="shopParams.brandId"
           optionLabel="name"
           [style]="{ width: '15rem' }"
         >
           <ng-template let-brand pTemplate="item">
             <div
               (click)="onBrandSelected(brand.id)"
-              [class]="brandIdSelected === brand.id ? 'p-highlight' : ''"
+              [class]="shopParams.brandId === brand.id ? 'p-highlight' : ''"
             >
               <div>{{ brand.name }}</div>
             </div>
@@ -32,7 +32,7 @@
         <h5>Types</h5>
         <p-listbox
           [options]="types"
-          [(ngModel)]="typeIdSelected"
+          [(ngModel)]="shopParams.typeId"
           optionLabel="name"
           [style]="{ width: '15rem' }"
         >
@@ -47,8 +47,42 @@
   </div>
   <div class="p-col">
     <div class="p-grid">
+      <div class="p-col-12">
+        <header>
+          <span *ngIf="totalCount && totalCount > 0"
+            >Showing
+            <strong
+              >{{
+                (this.shopParams.pageIndex - 1) * this.shopParams.pageSize + 1
+              }}
+              -
+              {{
+                this.shopParams.pageIndex * this.shopParams.pageSize >
+                this.totalCount
+                  ? this.totalCount
+                  : this.shopParams.pageIndex * this.shopParams.pageSize
+              }}</strong
+            >
+            of <strong>{{ this.totalCount }}</strong> Results
+          </span>
+          <span *ngIf="totalCount === 0"
+            >There are <strong>0</strong> results for this filter</span
+          >
+        </header>
+      </div>
       <div *ngFor="let item of products" class="p-col-4">
         <app-product-items [product]="item"></app-product-items>
+      </div>
+      <div
+        class="p-col-12 flex justify-content-center"
+        *ngIf="totalCount && totalCount > 0"
+      >
+        <p-paginator
+          [rows]="shopParams.pageSize"
+          [totalRecords]="totalCount"
+          class="flex align-items-center justify-content-center"
+          (onPageChange)="onPageChanged($event)"
+        ></p-paginator>
       </div>
     </div>
   </div>
