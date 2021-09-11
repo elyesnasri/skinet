@@ -39,8 +39,7 @@ namespace Infrastructure.Data
 
         public async Task<int> CountyAsync (ISpecification<T> spec)
         {
-            var data = ApplySpecification (spec);
-            return await data.CountAsync ();
+            return await ApplySpecification (spec).CountAsync ();
         }
 
         private IQueryable<T> ApplySpecification (ISpecification<T> spec)

@@ -36,7 +36,7 @@ export class ShopComponent implements OnInit {
         this.products = response.data;
         this.shopParams.pageIndex = response.pageIndex;
         this.shopParams.pageSize = response.pageSize;
-        this.totalCount = 18; // will be fixed in backend -> response.count ist the right one;
+        this.totalCount = response.count; // will be fixed in backend -> response.count ist the right one;
         console.log('count: ', response);
       },
       (error) => {
